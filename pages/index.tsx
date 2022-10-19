@@ -7,9 +7,11 @@ const Home: NextPage = () => {
   const [resume, setResume] = useState("")
   const [jobDescription, setJobDescription] = useState("")
   const [coverLetter, setCoverLetter] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const getCoverLetter = async () => {
     if (resume && jobDescription) {
+      setLoading(true)
       const prompt =
         "create a cover letter given input of a resume labeled 'MY RESUME' and a job description labeled 'JOB DESCRIPTION':" +
         "\n\n MY RESUME \n\n" +
@@ -29,6 +31,7 @@ const Home: NextPage = () => {
     } else {
       alert("Please fill out all fields")
     }
+    setLoading(false)
   }
 
   return (
@@ -91,6 +94,7 @@ const Home: NextPage = () => {
           </div>
           {/* create a text are for output to be displayed */}
           <div className="flex flex-col justify-center items-center">
+            {loading && <p>Loading...</p>}
             <label className="text-2xl">Cover Letter</label>
             <textarea
               className="w-full h-full p-4 border-2 border-gray-300 rounded-md min-h-[40vh]"

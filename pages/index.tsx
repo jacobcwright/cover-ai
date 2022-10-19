@@ -64,7 +64,6 @@ const Home: NextPage = () => {
                 placeholder="Paste your resume here"
                 value={resume}
                 onChange={(e) => {
-                  console.log(e.target.value)
                   setResume(e.target.value)
                 }}
               ></textarea>
@@ -76,7 +75,6 @@ const Home: NextPage = () => {
                 placeholder="Paste the job description here"
                 value={jobDescription}
                 onChange={(e) => {
-                  console.log(e.target.value)
                   setJobDescription(e.target.value)
                 }}
               ></textarea>

@@ -17,8 +17,7 @@ const Home: NextPage = () => {
         "\n\n MY RESUME \n\n" +
         resume +
         "\n\n JOB DESCRIPTION \n\n" +
-        jobDescription +
-        "\n***END***"
+        jobDescription
       await fetch("/api/openAi", {
         method: "POST",
         body: JSON.stringify({ prompt }),

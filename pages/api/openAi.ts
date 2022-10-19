@@ -23,17 +23,16 @@ const handler = async (req: any, res: any) => {
         top_p: 1,
         n: 1,
         stream: false,
-        logprobs: null,
+        logprobs: 3,
         presence_penalty: 0,
         frequency_penalty: 0,
         best_of: 1,
         user: "",
-        stop: "***END***",
+        // stop: "***END***",
       })
     res.status(200).json(response.data)
   } catch (error) {
     console.log(error)
   }
 }
-
 export default handler

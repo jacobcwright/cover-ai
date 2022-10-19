@@ -12,8 +12,12 @@ const Home: NextPage = () => {
     if (resume && jobDescription) {
       const prompt =
         "create a cover letter given input of a resume labeled 'MY RESUME' and a job description labeled 'JOB DESCRIPTION':" +
-        "\n\n MY RESUME \n\n"
-      resume + "\n\n JOB DESCRIPTION \n\n" + jobDescription
+        "\n\n MY RESUME \n\n" +
+        resume +
+        "\n\n JOB DESCRIPTION \n\n" +
+        jobDescription +
+        "\n***END***"
+      console.log(prompt)
       await fetch("/api/openAi", {
         method: "POST",
         body: JSON.stringify({
@@ -22,6 +26,7 @@ const Home: NextPage = () => {
       })
         .then((res) => res.json())
         .then((data) => {
+          console.log(data)
           setCoverLetter(data.choices[0].text)
         })
     } else {
@@ -58,7 +63,10 @@ const Home: NextPage = () => {
                 className="w-full h-full p-4 border-2 border-gray-300 rounded-md min-h-[40vh]"
                 placeholder="Paste your resume here"
                 value={resume}
-                onChange={(e) => setResume(e.target.value)}
+                onChange={(e) => {
+                  console.log(e.target.value)
+                  setResume(e.target.value)
+                }}
               ></textarea>
             </div>
             <div className="flex flex-col justify-center items-center w-full md:mx-4">
@@ -67,7 +75,10 @@ const Home: NextPage = () => {
                 className="w-full h-full p-4 border-2 border-gray-300 rounded-md min-h-[40vh]"
                 placeholder="Paste the job description here"
                 value={jobDescription}
-                onChange={(e) => setJobDescription(e.target.value)}
+                onChange={(e) => {
+                  console.log(e.target.value)
+                  setJobDescription(e.target.value)
+                }}
               ></textarea>
             </div>
           </div>

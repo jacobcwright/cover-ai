@@ -15,7 +15,7 @@ const handler = async (req: any, res: any) => {
         model: "text-davinci-002",
         prompt,
         max_tokens: 100,
-        temperature: 0.5,
+        temperature: 0.7,
         top_p: 1,
         n: 1,
         stream: false,
@@ -24,7 +24,9 @@ const handler = async (req: any, res: any) => {
         frequency_penalty: 0,
         best_of: 1,
         user: "",
+        stop: "***END***",
       })
+    console.log(response)
     res.status(200).json(response.data)
   } catch (error) {
     console.log(error)

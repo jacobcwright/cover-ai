@@ -32,7 +32,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="min-h-[100vh] px-8 md:px-16 py-0 flex flex-col justify-center items-center w-full">
+      <main className="min-h-[100vh] px-8 md:px-16 py-16 flex flex-col justify-center items-center w-full">
         <h1 className="m-0 text-8xl text-center">
           <i className="text-red-300">Hate</i> writing cover letters?
         </h1>

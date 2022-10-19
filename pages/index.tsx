@@ -17,18 +17,15 @@ const Home: NextPage = () => {
         "\n\n JOB DESCRIPTION \n\n" +
         jobDescription +
         "\n***END***"
-      console.log(prompt)
       await fetch("/api/openAi", {
         method: "POST",
-        body: JSON.stringify({
-          prompt,
-        }),
+        body: JSON.stringify({ prompt }),
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data)
           setCoverLetter(data.choices[0].text)
         })
+        .catch((err) => console.log(err))
     } else {
       alert("Please fill out all fields")
     }

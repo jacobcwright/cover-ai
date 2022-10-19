@@ -8,13 +8,17 @@ const openai = new OpenAIApi(configuration)
 
 // create handler function that calls the openai api and returns the response
 const handler = async (req: any, res: any) => {
-  const { prompt } = req.body
+  // get the prompt from the request body
+  const prompt = JSON.parse(req.body).prompt
+
+  if (!prompt) return res.status(400).json({ error: "No prompt provided" })
+
   try {
     const response: AxiosResponse<CreateCompletionResponse, any> =
       await openai.createCompletion({
         model: "text-davinci-002",
-        prompt,
-        max_tokens: 100,
+        prompt: prompt,
+        max_tokens: 2000,
         temperature: 0.7,
         top_p: 1,
         n: 1,
@@ -26,7 +30,6 @@ const handler = async (req: any, res: any) => {
         user: "",
         stop: "***END***",
       })
-    console.log(response)
     res.status(200).json(response.data)
   } catch (error) {
     console.log(error)

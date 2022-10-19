@@ -10,12 +10,20 @@ const Home: NextPage = () => {
 
   const getCoverLetter = async () => {
     if (resume && jobDescription) {
-      alert(
-        "Getting cover letter with resume: " +
-          resume +
-          " and job description: " +
-          jobDescription
-      )
+      const prompt =
+        "create a cover letter given input of a resume labeled 'MY RESUME' and a job description labeled 'JOB DESCRIPTION':" +
+        "\n\n MY RESUME \n\n"
+      resume + "\n\n JOB DESCRIPTION \n\n" + jobDescription
+      await fetch("/api/openAi", {
+        method: "POST",
+        body: JSON.stringify({
+          prompt,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setCoverLetter(data.choices[0].text)
+        })
     } else {
       alert("Please fill out all fields")
     }

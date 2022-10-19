@@ -13,7 +13,7 @@ const Home: NextPage = () => {
     if (resume && jobDescription) {
       setLoading(true)
       const prompt =
-        "create a cover letter given input of a resume labeled 'MY RESUME' and a job description labeled 'JOB DESCRIPTION':" +
+        "Create a cover letter given input of a resume labeled 'MY RESUME' and a job description labeled 'JOB DESCRIPTION':" +
         "\n\n MY RESUME \n\n" +
         resume +
         "\n\n JOB DESCRIPTION \n\n" +
@@ -27,7 +27,6 @@ const Home: NextPage = () => {
         .then((data) => {
           setCoverLetter(data.choices[0].text)
         })
-        .catch((err) => console.log(err))
     } else {
       alert("Please fill out all fields")
     }

@@ -13,11 +13,12 @@ const Home: NextPage = () => {
     if (resume && jobDescription) {
       setLoading(true)
       const prompt =
-        "Create a cover letter given input of a resume labeled 'MY RESUME' and a job description labeled 'JOB DESCRIPTION':" +
-        "\n\n MY RESUME \n\n" +
+        "Create a cover letter for Jacob Wright given input of a resume and a job description:" +
+        "'" +
         resume +
-        "\n\n JOB DESCRIPTION \n\n" +
-        jobDescription
+        "\n\n'" +
+        jobDescription +
+        "'"
       await fetch("/api/openAi", {
         method: "POST",
         body: JSON.stringify({ prompt }),

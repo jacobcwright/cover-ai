@@ -19,16 +19,15 @@ const handler = async (req: any, res: any) => {
         model: "text-davinci-002",
         prompt: prompt,
         max_tokens: 2000,
-        temperature: 0.7,
+        temperature: 0.5,
         top_p: 1,
         n: 1,
         stream: false,
-        logprobs: 3,
+        logprobs: null,
         presence_penalty: 0,
         frequency_penalty: 0,
         best_of: 1,
         user: "",
-        // stop: "***END***",
       })
     res.status(200).json(response.data)
   } catch (error) {

@@ -13,7 +13,7 @@ const Home: NextPage = () => {
     if (resume && jobDescription) {
       setLoading(true)
       const prompt =
-        "Create a cover letter for Jacob Wright given input of a resume and a job description:" +
+        "Create a cover letter for PERSON given input of a resume and a job description:" +
         "'" +
         resume +
         "\n\n'" +

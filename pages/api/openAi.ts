@@ -21,7 +21,7 @@ const handler = async (req: any, res: any) => {
     data.resume +
     ". Here is the job description: " +
     data.jobDescription +
-    ":"
+    "\n\nEND:"
 
   if (!prompt) return res.status(400).json({ error: "No prompt provided" })
 

@@ -1,8 +1,15 @@
 import { Auth } from "aws-amplify"
 import { useRouter } from "next/router"
 import { useState } from "react"
+import { PhoneNumberField } from "@aws-amplify/ui-react"
 
-const initialFormState = { name: "", email: "", password: "", phone: "" }
+const initialFormState = {
+  name: "",
+  email: "",
+  password: "",
+  dialCode: "+1",
+  phone: "",
+}
 const Register = () => {
   const [formData, setFormData] = useState(initialFormState)
   const router = useRouter()
@@ -22,7 +29,7 @@ const Register = () => {
         password: formData.password,
         attributes: {
           name: formData.name,
-          phone_number: formData.phone,
+          phone_number: formData.dialCode + formData.phone,
         },
         autoSignIn: {
           // optional - enables auto sign in after user is confirmed
@@ -50,7 +57,7 @@ const Register = () => {
               placeholder="name"
               value={formData.name}
               type="text"
-              className="border border-sky-500 p-2 rounded w-full bg-white"
+              className="border border-black p-2 rounded w-full bg-white my-2"
             />
           </div>
           <div className="flex flex-col">
@@ -62,7 +69,7 @@ const Register = () => {
               placeholder="email"
               value={formData.email}
               type="email"
-              className="border border-sky-500 p-2 rounded w-full bg-white"
+              className="border border-black p-2 rounded w-full bg-white my-2"
             />
           </div>
 
@@ -75,20 +82,25 @@ const Register = () => {
               placeholder="pasword"
               value={formData.password}
               type="password"
-              className="border p-2 rounded border-sky-500 bg-white"
+              className="border p-2 rounded border-black bg-white my-2"
             />
           </div>
-
           <div className="flex flex-col">
-            <label>Phone Number </label>
-            <input
-              onChange={(e) =>
-                setFormData({ ...formData, phone: e.target.value })
-              }
-              placeholder="phone number"
+            <PhoneNumberField
+              defaultDialCode="+1"
+              label="Phone number"
+              placeholder="234-567-8910"
               value={formData.phone}
-              type="tel"
-              className="border p-2 rounded border-sky-500 bg-white"
+              onDialCodeChange={(e) => {
+                console.log(e)
+                setFormData({
+                  ...formData,
+                  dialCode: e.target.value,
+                })
+              }}
+              onChange={(e) => {
+                setFormData({ ...formData, phone: e.target.value })
+              }}
             />
           </div>
 

@@ -1,4 +1,8 @@
 import { AxiosResponse } from "axios"
+import { Amplify, withSSRContext } from "aws-amplify"
+import config from "../../src/aws-exports"
+Amplify.configure({ ...config, ssr: true })
+
 import { Configuration, OpenAIApi, CreateCompletionResponse } from "openai"
 const configuration = new Configuration({
   organization: "org-fhbvWxvrrIWqdPztw6tQgwAA",

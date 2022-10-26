@@ -1,83 +1,76 @@
-/* eslint-disable react/no-unescaped-entities */
-import Image from "next/image"
+import { Auth } from "aws-amplify"
 import { useRouter } from "next/router"
-import React, { useState } from "react"
+import { useState } from "react"
+import { PhoneNumberField } from "@aws-amplify/ui-react"
 
-function Login() {
+const initialFormState = {
+  email: "",
+  password: "",
+}
+const Register = () => {
+  const [formData, setFormData] = useState(initialFormState)
   const router = useRouter()
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [emailError, setEmailError] = useState("")
+  async function login() {
+    if (formData.email === "" || formData.password === "") {
+      alert("Please fill out all fields")
+      return
+    }
+    try {
+      const user = await Auth.signIn({
+        username: formData.email,
+        password: formData.password,
+      })
+      console.log(user)
+      router.push("/")
+    } catch (error) {
+      console.log("error signing up:", error)
+    }
+  }
 
   return (
-    <div className="flex w-full h-full items-center justify-center align-middle px-8 text-black">
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="px-8 py-6 mt-4 text-left bg-slate-300 shadow-lg rounded-xl">
-          <div className="flex justify-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-20 h-20 text-blue-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M12 14l9-5-9-5-9 5 9 5z" />
-              <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-              />
-            </svg>
+    <div className="bg-white flex flex-col justify-center">
+      <div className="grid max-w-screen-xl h-screen text-black m-auto place-content-center">
+        <h1 className="text-blue-500 text-2xl text-center">
+          Login to your Brainiac account
+        </h1>
+        <div className="w-[30rem] space-y-6">
+          <div className="flex flex-col">
+            <label> Email </label>
+            <input
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+              placeholder="email"
+              value={formData.email}
+              type="email"
+              className="border border-black p-2 rounded w-full bg-white my-2"
+            />
           </div>
-          <h3 className="text-2xl font-bold text-center">
-            Login or create an account
-          </h3>
-          <form action="">
-            <div className="mt-4">
-              <div>
-                <label className="block" htmlFor="email">
-                  Email
-                </label>
-                <input
-                  type="text"
-                  placeholder="Email"
-                  className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 bg-white"
-                />
-                {emailError && (
-                  <span className="text-xs tracking-wide text-red-600">
-                    Email field is required{" "}
-                  </span>
-                )}
-              </div>
-              <div className="mt-4">
-                <label className="block">Password</label>
-                <input
-                  type="password"
-                  placeholder="Password"
-                  className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 bg-white"
-                />
-              </div>
-              <div className="flex items-baseline justify-between">
-                <button
-                  className="px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"
-                  onClick={() => {
-                    router.push("/chicken")
-                  }}
-                >
-                  Login
-                </button>
-                <a href="#" className="text-sm text-blue-600 hover:underline">
-                  Forgot password?
-                </a>
-              </div>
-            </div>
-          </form>
+
+          <div className="flex flex-col">
+            <label>Password </label>
+            <input
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
+              placeholder="pasword"
+              value={formData.password}
+              type="password"
+              className="border p-2 rounded border-black bg-white my-2"
+            />
+          </div>
+          <div>
+            <button
+              className="border-none bg-sky-700 text-white p-2 mt-4 rounded m-auto"
+              onClick={login}
+            >
+              Login
+            </button>
+          </div>
         </div>
       </div>
     </div>
   )
 }
 
-export default Login
+export default Register

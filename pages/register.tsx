@@ -45,8 +45,11 @@ const Register = () => {
   }
 
   return (
-    <div className="bg-white">
+    <div className="bg-white flex flex-col justify-center">
       <div className="grid max-w-screen-xl h-screen text-black m-auto place-content-center">
+        <h1 className="text-blue-500 text-2xl text-center">
+          Create an account with Brainiac
+        </h1>
         <div className="w-[30rem] space-y-6">
           <div className="flex flex-col">
             <label>Name</label>

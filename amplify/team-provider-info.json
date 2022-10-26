@@ -1,16 +1,16 @@
 {
-  "dev": {
+  "master": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-coverai-dev-140541-authRole",
-      "UnauthRoleArn": "arn:aws:iam::682820591350:role/amplify-coverai-dev-140541-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::682820591350:role/amplify-coverai-dev-140541-authRole",
+      "AuthRoleName": "amplify-coverai-master-04705-authRole",
+      "UnauthRoleArn": "arn:aws:iam::682820591350:role/amplify-coverai-master-04705-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::682820591350:role/amplify-coverai-master-04705-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-coverai-dev-140541-deployment",
-      "UnauthRoleName": "amplify-coverai-dev-140541-unauthRole",
-      "StackName": "amplify-coverai-dev-140541",
-      "StackId": "arn:aws:cloudformation:us-east-1:682820591350:stack/amplify-coverai-dev-140541/69032df0-54a0-11ed-9ed2-0e1f31908ecd",
-      "AmplifyAppId": "d3styc1hvyjj7h",
-      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-coverai-dev-140541-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+      "DeploymentBucketName": "amplify-coverai-master-04705-deployment",
+      "UnauthRoleName": "amplify-coverai-master-04705-unauthRole",
+      "StackName": "amplify-coverai-master-04705",
+      "StackId": "arn:aws:cloudformation:us-east-1:682820591350:stack/amplify-coverai-master-04705/b6a22c60-54c7-11ed-8836-0e5a1ae84d33",
+      "AmplifyAppId": "d3m2vtouxjn2vu",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-coverai-master-04705-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
@@ -18,7 +18,7 @@
       },
       "function": {
         "coverai234019aa234019aaCreateAuthChallenge": {
-          "deploymentBucketName": "amplify-coverai-dev-140541-deployment",
+          "deploymentBucketName": "amplify-coverai-master-04705-deployment",
           "s3Key": "amplify-builds/coverai234019aa234019aaCreateAuthChallenge-2b507147635463472f57-build.zip"
         }
       }

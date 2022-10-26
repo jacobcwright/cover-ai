@@ -45,12 +45,12 @@ const Home: NextPage = () => {
   return (
     <div className="h-full w-full flex flex-col relative">
       <Head>
-        <title>Cover Letter AI</title>
+        <title>Braniac</title>
         <meta
           name="description"
           content="Create personalized cover letters using AI"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <nav>
         <button

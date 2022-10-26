@@ -1,6 +1,8 @@
 import type { NextPage } from "next"
 import Head from "next/head"
 import { useState } from "react"
+import { withAuthenticator } from "@aws-amplify/ui-react"
+import { Auth } from "aws-amplify"
 
 const Home: NextPage = () => {
   const [name, setName] = useState("")
@@ -35,6 +37,11 @@ const Home: NextPage = () => {
     setLoading(false)
   }
 
+  const signOut = async () => {
+    localStorage.clear()
+    await Auth.signOut()
+  }
+
   return (
     <div className="h-full w-full flex flex-col relative">
       <Head>
@@ -45,7 +52,14 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <nav>
+        <button
+          className="m-6 mb-0 p-2 bg-red-300 rounded-xl"
+          onClick={signOut}
+        >
+          Sign Out
+        </button>
+      </nav>
       <main className="min-h-[100vh] px-8 md:px-16 py-16 flex flex-col justify-center items-center w-full">
         <h1 className="m-0 text-8xl text-center">
           <i className="text-red-300">Hate</i> writing cover letters?
@@ -141,4 +155,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default withAuthenticator(Home)

@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "coverai",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authcoverai234019aa234019aa",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

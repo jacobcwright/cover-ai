@@ -1,8 +1,9 @@
 import type { NextPage } from "next"
 import Head from "next/head"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { withAuthenticator } from "@aws-amplify/ui-react"
 import { Auth } from "aws-amplify"
+import SideNav from "../components/SideNav"
 
 const Home: NextPage = () => {
   const [name, setName] = useState("")
@@ -12,6 +13,16 @@ const Home: NextPage = () => {
   const [jobDescription, setJobDescription] = useState("")
   const [coverLetter, setCoverLetter] = useState("")
   const [loading, setLoading] = useState(false)
+  const [user, setUser] = useState<any>(null)
+
+  useEffect(() => {
+    const getUser = async () => {
+      let user = await Auth.currentUserInfo()
+      setUser(user)
+      console.log(user)
+    }
+    getUser()
+  }, [])
 
   const getCoverLetter = async () => {
     if (resume && jobDescription) {
@@ -53,22 +64,14 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <nav>
-        <button
-          className="m-6 mb-0 p-2 bg-red-300 rounded-xl"
-          onClick={signOut}
-        >
-          Sign Out
-        </button>
+        {/* <SideNav /> */}
+        <button onClick={signOut}>Sign Out</button>
+      </nav>
+      <nav>
+        <h1 className="m-0 text-8xl text-center">Cover Letter Generator</h1>
+        {/* <div>{user?.attributes?.name}</div> */}
       </nav>
       <main className="min-h-[100vh] px-8 md:px-16 py-16 flex flex-col justify-center items-center w-full">
-        <h1 className="m-0 text-8xl text-center">
-          <i className="text-red-300">Hate</i> writing cover letters?
-        </h1>
-
-        <p className="my-16 mx-0 text-3xl text-center">
-          Let ai write personalized cover letters for your job applications!
-        </p>
-
         {loading && (
           <div
             role="status"

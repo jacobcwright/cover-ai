@@ -14,7 +14,8 @@
     },
     "categories": {
       "auth": {
-        "coverai234019aa234019aa": {}
+        "coverai234019aa234019aa": {},
+        "true": {}
       },
       "function": {
         "coverai234019aa234019aaCreateAuthChallenge": {

@@ -1,0 +1,12 @@
+{
+  "kinesisStreamName": "coveraiKinesis",
+  "kinesisStreamShardCount": 1,
+  "authRoleName": {
+    "Ref": "AuthRoleName"
+  },
+  "unauthRoleName": {
+    "Ref": "UnauthRoleName"
+  },
+  "authPolicyName": "kinesis_amplify_b6875386",
+  "unauthPolicyName": "kinesis_amplify_b6875386"
+}

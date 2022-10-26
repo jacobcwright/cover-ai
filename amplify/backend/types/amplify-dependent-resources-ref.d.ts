@@ -25,5 +25,12 @@ export type AmplifyDependentResourcesAttributes = {
             "GraphQLAPIIdOutput": "string",
             "GraphQLAPIEndpointOutput": "string"
         }
+    },
+    "analytics": {
+        "coveraiKinesis": {
+            "kinesisStreamArn": "string",
+            "kinesisStreamId": "string",
+            "kinesisStreamShardCount": "string"
+        }
     }
 }

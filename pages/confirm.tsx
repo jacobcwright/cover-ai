@@ -10,7 +10,6 @@ const ConfirmSignup = () => {
   const code = formData.code
 
   useEffect(() => {
-    // Perform localStorage action
     // eslint-disable-next-line react-hooks/exhaustive-deps
     let e = localStorage.getItem("user")
     if (e) {

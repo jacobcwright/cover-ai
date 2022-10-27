@@ -3,9 +3,14 @@
 input AMPLIFY {
   globalAuthRule: AuthRule = { allow: public }
 } # FOR TESTING ONLY!
-type Posts @model @auth(rules: [{ allow: owner }]) {
+type Users @model @auth(rules: [{ allow: owner }]) {
   id: ID!
-  title: String!
-  description: String
-  author: String
+  username: String!
+  email: String!
+  activeSubscription: Boolean!
+  subscriptionId: String
+  coverLetterRequests: Int!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  lastLogin: AWSDateTime!
 }

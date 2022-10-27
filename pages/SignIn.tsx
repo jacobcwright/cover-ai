@@ -1,13 +1,12 @@
 import { Auth } from "aws-amplify"
 import { useRouter } from "next/router"
 import { useState } from "react"
-import { PhoneNumberField } from "@aws-amplify/ui-react"
 
 const initialFormState = {
   email: "",
   password: "",
 }
-const Register = () => {
+const SignIn = () => {
   const [formData, setFormData] = useState(initialFormState)
   const router = useRouter()
   async function login() {
@@ -16,12 +15,13 @@ const Register = () => {
       return
     }
     try {
-      const user = await Auth.signIn({
+      await Auth.signIn({
         username: formData.email,
         password: formData.password,
+      }).then((user) => {
+        console.log(user)
+        router.push("/")
       })
-      console.log(user)
-      router.push("/")
     } catch (error) {
       console.log("error signing up:", error)
     }
@@ -73,4 +73,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default SignIn

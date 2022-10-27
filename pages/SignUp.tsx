@@ -10,7 +10,7 @@ const initialFormState = {
   dialCode: "+1",
   phone: "",
 }
-const Register = () => {
+const SignUp = () => {
   const [formData, setFormData] = useState(initialFormState)
   const router = useRouter()
   async function signUp() {
@@ -121,4 +121,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default SignUp

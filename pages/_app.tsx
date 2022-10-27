@@ -4,9 +4,14 @@ import type { AppProps } from "next/app"
 import { Amplify } from "aws-amplify"
 import config from "../src/aws-exports"
 import Head from "next/head"
+import { AmplifyProvider, Authenticator } from "@aws-amplify/ui-react"
+import { useRouter } from "next/router"
+import ProtectedRoute from "../components/ProtectedRoute"
 Amplify.configure(config)
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter()
+  const noAuthRequired = ["/login", "/register"]
   return (
     <>
       <Head>
@@ -17,7 +22,17 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <Component {...pageProps} />
+      <AmplifyProvider>
+        <Authenticator.Provider>
+          {noAuthRequired.includes(router.pathname) ? (
+            <Component {...pageProps} />
+          ) : (
+            <ProtectedRoute>
+              <Component {...pageProps} />
+            </ProtectedRoute>
+          )}
+        </Authenticator.Provider>
+      </AmplifyProvider>
     </>
   )
 }

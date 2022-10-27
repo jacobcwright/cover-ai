@@ -1,10 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import type { NextPage } from "next"
 import Head from "next/head"
-import { useState } from "react"
-import { withAuthenticator } from "@aws-amplify/ui-react"
+import { useEffect, useState } from "react"
+import { useAuthenticator, withAuthenticator } from "@aws-amplify/ui-react"
 import { Auth } from "aws-amplify"
+import { Router, useRouter } from "next/router"
 
 const Home: NextPage = () => {
+  const { signOut, user } = useAuthenticator()
+  const router = useRouter()
+
   const [name, setName] = useState("")
   const [resume, setResume] = useState("")
   const [company, setCompany] = useState("")
@@ -12,6 +17,12 @@ const Home: NextPage = () => {
   const [jobDescription, setJobDescription] = useState("")
   const [coverLetter, setCoverLetter] = useState("")
   const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    if (!user) {
+      router.push("/login")
+    }
+  }, [user])
 
   const getCoverLetter = async () => {
     if (resume && jobDescription) {
@@ -37,7 +48,8 @@ const Home: NextPage = () => {
     setLoading(false)
   }
 
-  const signOut = async () => {
+  const logout = async () => {
+    console.log("signing out")
     localStorage.clear()
     await Auth.signOut()
   }
@@ -53,10 +65,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <nav>
-        <button
-          className="m-6 mb-0 p-2 bg-red-300 rounded-xl"
-          onClick={signOut}
-        >
+        <button className="m-6 mb-0 p-2 bg-red-300 rounded-xl" onClick={logout}>
           Sign Out
         </button>
       </nav>
@@ -155,4 +164,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default withAuthenticator(Home)
+export default Home

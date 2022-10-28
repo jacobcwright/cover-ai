@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@aws-amplify/ui-react": "^3.5.9",
+    "@next/font": "^13.0.0",
     "@types/next": "^9.0.0",
     "aws-amplify": "^4.3.39",
     "next": "^12.3.1",

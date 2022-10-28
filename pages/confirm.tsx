@@ -27,7 +27,7 @@ const ConfirmSignup = () => {
       localStorage.clear()
       router.replace("/")
     } catch (error) {
-      console.log("error confirming sign up", error)
+      console.error("error confirming sign up", error)
     }
   }
 

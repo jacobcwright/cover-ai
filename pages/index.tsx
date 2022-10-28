@@ -1,10 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import type { NextPage } from "next"
 import Head from "next/head"
-import { useState } from "react"
-import { withAuthenticator } from "@aws-amplify/ui-react"
+import { useEffect, useState } from "react"
+import { useAuthenticator, withAuthenticator } from "@aws-amplify/ui-react"
 import { Auth } from "aws-amplify"
+import { Router, useRouter } from "next/router"
 
 const Home: NextPage = () => {
+  const { signOut, user } = useAuthenticator()
+  const router = useRouter()
+
   const [name, setName] = useState("")
   const [resume, setResume] = useState("")
   const [company, setCompany] = useState("")
@@ -13,33 +18,47 @@ const Home: NextPage = () => {
   const [coverLetter, setCoverLetter] = useState("")
   const [loading, setLoading] = useState(false)
 
+  useEffect(() => {
+    if (!user) {
+      router.push("/login")
+    }
+  }, [user])
+
   const getCoverLetter = async () => {
     if (resume && jobDescription) {
       setLoading(true)
-      const data = {
-        name: name,
-        jobTitle: jobTitle,
-        company: company,
-        resume: resume,
-        jobDescription: jobDescription,
-      }
-      await fetch("/api/openAi", {
-        method: "POST",
-        body: JSON.stringify({ data }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setCoverLetter(data.choices[0].text)
+      try {
+        const data = {
+          name: name,
+          jobTitle: jobTitle,
+          company: company,
+          resume: resume,
+          jobDescription: jobDescription,
+          user: user.getUsername(),
+        }
+        await fetch("/api/openAi", {
+          method: "POST",
+          body: JSON.stringify({ data }),
         })
+          .then((res) => res.json())
+          .then((data) => {
+            setCoverLetter(data.choices[0].text)
+          })
+      } catch (err) {
+        setCoverLetter("An error has occurred, please try again.")
+        console.error(err)
+        setLoading(false)
+      }
     } else {
       alert("Please fill out all fields")
     }
     setLoading(false)
   }
 
-  const signOut = async () => {
+  const logout = async () => {
     localStorage.clear()
     await Auth.signOut()
+    router.push("/login")
   }
 
   return (
@@ -53,10 +72,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <nav>
-        <button
-          className="m-6 mb-0 p-2 bg-red-300 rounded-xl"
-          onClick={signOut}
-        >
+        <button className="m-6 mb-0 p-2 bg-red-300 rounded-xl" onClick={logout}>
           Sign Out
         </button>
       </nav>
@@ -155,4 +171,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default withAuthenticator(Home)
+export default Home

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useRouter } from "next/router"
 import React, { useEffect } from "react"
 import { useAuthenticator } from "@aws-amplify/ui-react"
@@ -8,12 +9,12 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     console.log(user)
-    if (!user?.getSignInUserSession()) {
+    if (!user) {
       router.push("/login")
     }
-  }, [router, user])
+  }, [user])
 
-  return <>{user?.getSignInUserSession() ? children : null}</>
+  return <>{user ? children : null}</>
 }
 
 export default ProtectedRoute

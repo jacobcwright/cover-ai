@@ -52,6 +52,7 @@ const Home: NextPage = () => {
     console.log("signing out")
     localStorage.clear()
     await Auth.signOut()
+    router.push("/login")
   }
 
   return (

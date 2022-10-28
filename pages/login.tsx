@@ -11,7 +11,6 @@ const Login = () => {
   const { user } = useAuthenticator()
 
   useEffect(() => {
-    console.log(user)
     if (user?.getSignInUserSession()) {
       router.push("/")
     }

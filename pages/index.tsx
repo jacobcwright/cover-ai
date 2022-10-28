@@ -27,21 +27,28 @@ const Home: NextPage = () => {
   const getCoverLetter = async () => {
     if (resume && jobDescription) {
       setLoading(true)
-      const data = {
-        name: name,
-        jobTitle: jobTitle,
-        company: company,
-        resume: resume,
-        jobDescription: jobDescription,
-      }
-      await fetch("/api/openAi", {
-        method: "POST",
-        body: JSON.stringify({ data }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setCoverLetter(data.choices[0].text)
+      try {
+        const data = {
+          name: name,
+          jobTitle: jobTitle,
+          company: company,
+          resume: resume,
+          jobDescription: jobDescription,
+          user: user.getUsername(),
+        }
+        await fetch("/api/openAi", {
+          method: "POST",
+          body: JSON.stringify({ data }),
         })
+          .then((res) => res.json())
+          .then((data) => {
+            setCoverLetter(data.choices[0].text)
+          })
+      } catch (err) {
+        setCoverLetter("An error has occurred, please try again.")
+        console.error(err)
+        setLoading(false)
+      }
     } else {
       alert("Please fill out all fields")
     }
@@ -49,7 +56,6 @@ const Home: NextPage = () => {
   }
 
   const logout = async () => {
-    console.log("signing out")
     localStorage.clear()
     await Auth.signOut()
     router.push("/login")

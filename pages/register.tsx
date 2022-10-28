@@ -37,11 +37,10 @@ const Register = () => {
           enabled: true,
         },
       })
-      console.log(user)
       localStorage.setItem("user", user.getUsername())
       router.push("/confirm")
     } catch (error) {
-      console.log("error signing up:", error)
+      console.error("error signing up:", error)
     }
   }
 
@@ -96,7 +95,6 @@ const Register = () => {
               placeholder="234-567-8910"
               value={formData.phone}
               onDialCodeChange={(e) => {
-                console.log(e)
                 setFormData({
                   ...formData,
                   dialCode: e.target.value,

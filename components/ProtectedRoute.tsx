@@ -2,13 +2,13 @@
 import { useRouter } from "next/router"
 import React, { useEffect } from "react"
 import { useAuthenticator } from "@aws-amplify/ui-react"
+import { withSSRContext } from "aws-amplify"
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { signOut, user } = useAuthenticator()
   const router = useRouter()
 
   useEffect(() => {
-    console.log(user)
     if (!user) {
       router.push("/login")
     }
@@ -18,3 +18,20 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 }
 
 export default ProtectedRoute
+
+export async function getServerSideProps(context: any) {
+  const { Auth } = withSSRContext(context)
+  try {
+    const user = await Auth.currentAuthenticatedUser()
+    return {
+      user,
+    }
+  } catch (err) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    }
+  }
+}

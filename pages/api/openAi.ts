@@ -14,7 +14,6 @@ const openai = new OpenAIApi(configuration)
 const handler = async (req: any, res: any) => {
   // get the prompt from the request body
   const data = JSON.parse(req.body).data
-  console.log(data)
   const prompt =
     "Write a professional cover letter for " +
     data.name +

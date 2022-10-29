@@ -3,7 +3,6 @@ import { Authenticator, useAuthenticator } from "@aws-amplify/ui-react"
 import { Auth } from "aws-amplify"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
-// import { Helvetica } from "@next/font/google"
 
 const Login = () => {
   const [formData, setFormData] = useState<any>()

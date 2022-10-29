@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios"
-import { Amplify, withSSRContext } from "aws-amplify"
+import { Amplify } from "aws-amplify"
 import config from "../../src/aws-exports"
 Amplify.configure({ ...config, ssr: true })
 

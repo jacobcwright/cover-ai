@@ -1,15 +1,25 @@
-input AMPLIFY {
-  globalAuthRule: AuthRule = {allow: public}
+type CoverLetterRequests @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  usersID: ID! @index(name: "byUsers")
+  name: String!
+  company: String!
+  jobTitle: String!
+  resume: String!
+  jobDescription: String!
+  coverLetterResult: String!
 }
 
-type Users @model @auth(rules: [{allow: owner}]) {
+type Users @model @auth(rules: [{ allow: owner }]) {
   id: ID!
   username: String!
   email: String!
+  name: String!
   activeSubscription: Boolean!
   subscriptionId: String
-  coverLetterRequests: Int!
-  createdAt: AWSDateTime!
+  coverLetterCount: Int!
+  createdAt: AWSDateTime
   updatedAt: AWSDateTime!
+  CoverLetterRequests: [CoverLetterRequests]
+    @hasMany(indexName: "byUsers", fields: ["id"])
   lastLogin: AWSDateTime!
-} 
+}

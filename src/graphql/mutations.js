@@ -1,6 +1,72 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createCoverLetterRequests = /* GraphQL */ `
+  mutation CreateCoverLetterRequests(
+    $input: CreateCoverLetterRequestsInput!
+    $condition: ModelCoverLetterRequestsConditionInput
+  ) {
+    createCoverLetterRequests(input: $input, condition: $condition) {
+      id
+      usersID
+      name
+      company
+      jobTitle
+      resume
+      jobDescription
+      coverLetterResult
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const updateCoverLetterRequests = /* GraphQL */ `
+  mutation UpdateCoverLetterRequests(
+    $input: UpdateCoverLetterRequestsInput!
+    $condition: ModelCoverLetterRequestsConditionInput
+  ) {
+    updateCoverLetterRequests(input: $input, condition: $condition) {
+      id
+      usersID
+      name
+      company
+      jobTitle
+      resume
+      jobDescription
+      coverLetterResult
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const deleteCoverLetterRequests = /* GraphQL */ `
+  mutation DeleteCoverLetterRequests(
+    $input: DeleteCoverLetterRequestsInput!
+    $condition: ModelCoverLetterRequestsConditionInput
+  ) {
+    deleteCoverLetterRequests(input: $input, condition: $condition) {
+      id
+      usersID
+      name
+      company
+      jobTitle
+      resume
+      jobDescription
+      coverLetterResult
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
 export const createUsers = /* GraphQL */ `
   mutation CreateUsers(
     $input: CreateUsersInput!
@@ -10,12 +76,35 @@ export const createUsers = /* GraphQL */ `
       id
       username
       email
+      name
       activeSubscription
       subscriptionId
-      coverLetterRequests
+      coverLetterCount
       createdAt
       updatedAt
+      CoverLetterRequests {
+        items {
+          id
+          usersID
+          name
+          company
+          jobTitle
+          resume
+          jobDescription
+          coverLetterResult
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        nextToken
+        startedAt
+      }
       lastLogin
+      _version
+      _deleted
+      _lastChangedAt
       owner
     }
   }
@@ -29,12 +118,35 @@ export const updateUsers = /* GraphQL */ `
       id
       username
       email
+      name
       activeSubscription
       subscriptionId
-      coverLetterRequests
+      coverLetterCount
       createdAt
       updatedAt
+      CoverLetterRequests {
+        items {
+          id
+          usersID
+          name
+          company
+          jobTitle
+          resume
+          jobDescription
+          coverLetterResult
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        nextToken
+        startedAt
+      }
       lastLogin
+      _version
+      _deleted
+      _lastChangedAt
       owner
     }
   }
@@ -48,12 +160,35 @@ export const deleteUsers = /* GraphQL */ `
       id
       username
       email
+      name
       activeSubscription
       subscriptionId
-      coverLetterRequests
+      coverLetterCount
       createdAt
       updatedAt
+      CoverLetterRequests {
+        items {
+          id
+          usersID
+          name
+          company
+          jobTitle
+          resume
+          jobDescription
+          coverLetterResult
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        nextToken
+        startedAt
+      }
       lastLogin
+      _version
+      _deleted
+      _lastChangedAt
       owner
     }
   }

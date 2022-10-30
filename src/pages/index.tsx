@@ -41,7 +41,7 @@ const Home: NextPage = () => {
           const res: any = await API.graphql({
             query: getCoverCount,
             variables: {
-              id: "da69b70e-f2d7-43d1-aa49-39e459fac267",
+              id: user.username,
             },
             authToken: user.getSignInUserSession()?.getIdToken().getJwtToken(),
           })
@@ -52,7 +52,7 @@ const Home: NextPage = () => {
       }
     }
     getCount()
-  }, [user])
+  }, [user, loading])
 
   const getCoverLetter = async () => {
     if (resume && jobDescription) {
@@ -64,7 +64,9 @@ const Home: NextPage = () => {
           company: company,
           resume: resume,
           jobDescription: jobDescription,
-          user: user.getUsername(),
+          user: user.username,
+          coverLetterCount: coverLetterCount,
+          token: user.getSignInUserSession()?.getIdToken().getJwtToken(),
         }
         await fetch("/api/openAi", {
           method: "POST",

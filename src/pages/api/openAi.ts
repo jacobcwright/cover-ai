@@ -1,6 +1,8 @@
 import { AxiosResponse } from "axios"
-import { Amplify } from "aws-amplify"
 import config from "../../aws-exports"
+import { Amplify, API, graphqlOperation } from "aws-amplify"
+import { updateUsers } from "../../graphql/mutations"
+
 Amplify.configure({ ...config, ssr: true })
 
 import { Configuration, OpenAIApi, CreateCompletionResponse } from "openai"
@@ -12,6 +14,12 @@ const openai = new OpenAIApi(configuration)
 
 // create handler function that calls the openai api and returns the response
 const handler = async (req: any, res: any) => {
+  // check if cover letter count is sufficient
+  if (req.body.coverLetterCount < 1) {
+    res.status(400).json({ message: "No remaining cover letters" })
+    return
+  }
+
   // get the prompt from the request body
   const data = JSON.parse(req.body).data
   const prompt =
@@ -45,6 +53,17 @@ const handler = async (req: any, res: any) => {
         best_of: 1,
         user: data.user,
       })
+    // decrement cover letter count
+    await API.graphql({
+      query: updateUsers,
+      variables: {
+        input: {
+          id: data.user,
+          coverLetterCount: data.coverLetterCount - 1,
+        },
+      },
+      authToken: data.token,
+    })
     res.status(200).json(response.data)
   } catch (e) {
     console.error(e)

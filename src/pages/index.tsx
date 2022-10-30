@@ -5,6 +5,8 @@ import { useEffect, useState } from "react"
 import { useAuthenticator, withAuthenticator } from "@aws-amplify/ui-react"
 import { Auth } from "aws-amplify"
 import { Router, useRouter } from "next/router"
+import { API, graphqlOperation } from "aws-amplify"
+import { getUsers } from "../graphql/queries"
 
 const Home: NextPage = () => {
   const { signOut, user } = useAuthenticator()
@@ -17,12 +19,32 @@ const Home: NextPage = () => {
   const [jobDescription, setJobDescription] = useState("")
   const [coverLetter, setCoverLetter] = useState("")
   const [loading, setLoading] = useState(false)
+  const [coverLetterCount, setCoverLetterCount] = useState()
 
   useEffect(() => {
     if (!user) {
       router.push("/login")
     }
+    console.log(
+      "USER: ",
+      user.getSignInUserSession()?.getIdToken().getJwtToken()
+    )
   }, [user])
+
+  useEffect(() => {
+    const getCount = async () => {
+      if (user) {
+        const count = await API.graphql({
+          query: getUsers,
+          variables: { id: user.username },
+          authMode: "API_KEY",
+          authToken: user.getSignInUserSession()?.getIdToken().getJwtToken(),
+        })
+        console.log(count)
+      }
+    }
+    getCount()
+  }, [])
 
   const getCoverLetter = async () => {
     if (resume && jobDescription) {

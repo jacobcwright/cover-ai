@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Braniac</title>
+        <title>Brainiac</title>
         <meta
           name="description"
           content="Create personalized cover letters using AI"

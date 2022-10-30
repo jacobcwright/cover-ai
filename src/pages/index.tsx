@@ -6,9 +6,18 @@ import { useAuthenticator, withAuthenticator } from "@aws-amplify/ui-react"
 import { Auth } from "aws-amplify"
 import { Router, useRouter } from "next/router"
 import { API, graphqlOperation } from "aws-amplify"
-import { getUsers } from "../graphql/queries"
+import { getCoverCount } from "../graphql/queries"
+import assert from "assert"
 
 const Home: NextPage = () => {
+  // const getCoverCount = /* GRAPHQL */ `
+  //   query GetUsers($id: ID!) {
+  //     getUsers(id: $id) {
+  //       coverLetterCount
+  //   }
+  // }
+  // `
+
   const { signOut, user } = useAuthenticator()
   const router = useRouter()
 
@@ -34,10 +43,12 @@ const Home: NextPage = () => {
   useEffect(() => {
     const getCount = async () => {
       if (user) {
+        assert(user.username)
         const count = await API.graphql({
-          query: getUsers,
-          variables: { id: user.username },
-          authMode: "API_KEY",
+          query: getCoverCount,
+          variables: {
+            id: "da69b70e-f2d7-43d1-aa49-39e459fac267",
+          },
           authToken: user.getSignInUserSession()?.getIdToken().getJwtToken(),
         })
         console.log(count)

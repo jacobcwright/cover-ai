@@ -2,10 +2,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateCoverLetterRequests = /* GraphQL */ `
-  subscription OnCreateCoverLetterRequests(
-    $filter: ModelSubscriptionCoverLetterRequestsFilterInput
-  ) {
-    onCreateCoverLetterRequests(filter: $filter) {
+  subscription OnCreateCoverLetterRequests {
+    onCreateCoverLetterRequests {
       id
       usersID
       name
@@ -23,10 +21,8 @@ export const onCreateCoverLetterRequests = /* GraphQL */ `
   }
 `;
 export const onUpdateCoverLetterRequests = /* GraphQL */ `
-  subscription OnUpdateCoverLetterRequests(
-    $filter: ModelSubscriptionCoverLetterRequestsFilterInput
-  ) {
-    onUpdateCoverLetterRequests(filter: $filter) {
+  subscription OnUpdateCoverLetterRequests {
+    onUpdateCoverLetterRequests {
       id
       usersID
       name
@@ -44,10 +40,8 @@ export const onUpdateCoverLetterRequests = /* GraphQL */ `
   }
 `;
 export const onDeleteCoverLetterRequests = /* GraphQL */ `
-  subscription OnDeleteCoverLetterRequests(
-    $filter: ModelSubscriptionCoverLetterRequestsFilterInput
-  ) {
-    onDeleteCoverLetterRequests(filter: $filter) {
+  subscription OnDeleteCoverLetterRequests {
+    onDeleteCoverLetterRequests {
       id
       usersID
       name
@@ -65,11 +59,8 @@ export const onDeleteCoverLetterRequests = /* GraphQL */ `
   }
 `;
 export const onCreateUsers = /* GraphQL */ `
-  subscription OnCreateUsers(
-    $filter: ModelSubscriptionUsersFilterInput
-    $owner: String
-  ) {
-    onCreateUsers(filter: $filter, owner: $owner) {
+  subscription OnCreateUsers {
+    onCreateUsers {
       id
       username
       email
@@ -102,16 +93,12 @@ export const onCreateUsers = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      owner
     }
   }
 `;
 export const onUpdateUsers = /* GraphQL */ `
-  subscription OnUpdateUsers(
-    $filter: ModelSubscriptionUsersFilterInput
-    $owner: String
-  ) {
-    onUpdateUsers(filter: $filter, owner: $owner) {
+  subscription OnUpdateUsers {
+    onUpdateUsers {
       id
       username
       email
@@ -144,16 +131,12 @@ export const onUpdateUsers = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      owner
     }
   }
 `;
 export const onDeleteUsers = /* GraphQL */ `
-  subscription OnDeleteUsers(
-    $filter: ModelSubscriptionUsersFilterInput
-    $owner: String
-  ) {
-    onDeleteUsers(filter: $filter, owner: $owner) {
+  subscription OnDeleteUsers {
+    onDeleteUsers {
       id
       username
       email
@@ -186,7 +169,6 @@ export const onDeleteUsers = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      owner
     }
   }
 `;

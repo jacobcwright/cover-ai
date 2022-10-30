@@ -19,7 +19,7 @@ export const getCoverLetterRequests = /* GraphQL */ `
       _lastChangedAt
     }
   }
-`;
+`
 export const listCoverLetterRequests = /* GraphQL */ `
   query ListCoverLetterRequests(
     $filter: ModelCoverLetterRequestsFilterInput
@@ -50,7 +50,16 @@ export const listCoverLetterRequests = /* GraphQL */ `
       startedAt
     }
   }
-`;
+`
+
+export const getCoverCount = /* GraphQL */ `
+  query GetUsers($id: ID!) {
+    getUsers(id: $id) {
+      coverLetterCount
+    }
+  }
+`
+
 export const syncCoverLetterRequests = /* GraphQL */ `
   query SyncCoverLetterRequests(
     $filter: ModelCoverLetterRequestsFilterInput
@@ -83,7 +92,7 @@ export const syncCoverLetterRequests = /* GraphQL */ `
       startedAt
     }
   }
-`;
+`
 export const getUsers = /* GraphQL */ `
   query GetUsers($id: ID!) {
     getUsers(id: $id) {
@@ -119,10 +128,9 @@ export const getUsers = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      owner
     }
   }
-`;
+`
 export const listUsers = /* GraphQL */ `
   query ListUsers(
     $filter: ModelUsersFilterInput
@@ -148,13 +156,12 @@ export const listUsers = /* GraphQL */ `
         _version
         _deleted
         _lastChangedAt
-        owner
       }
       nextToken
       startedAt
     }
   }
-`;
+`
 export const syncUsers = /* GraphQL */ `
   query SyncUsers(
     $filter: ModelUsersFilterInput
@@ -186,10 +193,9 @@ export const syncUsers = /* GraphQL */ `
         _version
         _deleted
         _lastChangedAt
-        owner
       }
       nextToken
       startedAt
     }
   }
-`;
+`

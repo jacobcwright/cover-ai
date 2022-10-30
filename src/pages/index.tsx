@@ -105,27 +105,32 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <div className="hidden md:flex md:flex-col md:fixed md:min-w-[180px] md:w-[12vw] md:h-screen bg-[#9EB7BE] p-4 pt-12 justify-start">
-        <div
-          className="flex h-1/4 justify-center hover:cursor-pointer hover:animate-pulse"
-          onClick={() => {
-            router.replace("/")
-          }}
-        >
-          <Image
-            src="/brainiacWhite.png"
-            alt="brainiac logo"
-            layout="intrinsic"
-            height={300}
-            width={120}
-          />
+      <div className="hidden md:flex md:flex-col md:fixed md:min-w-[180px] md:w-[12vw] md:h-screen bg-[#9EB7BE] p-4 pt-12 justify-between">
+        <div className="flex justify-start flex-col h-full">
+          <div
+            className="flex h-1/4 justify-center hover:cursor-pointer hover:animate-pulse"
+            onClick={() => {
+              router.replace("/")
+            }}
+          >
+            <Image
+              src="/brainiacWhite.png"
+              alt="brainiac logo"
+              layout="intrinsic"
+              height={300}
+              width={120}
+            />
+          </div>
+          <div className="mt-6 flex flex-col space-y-6 text-center text-2xl text-white font-[Averia-Serif-Libre]">
+            <Link href="/" passHref>
+              <a className="text-[#015369]">Cover Letter</a>
+            </Link>
+            <Link href="/contact">Contact Us</Link>
+          </div>
         </div>
-        <div className="mt-6 flex flex-col space-y-6 text-center text-2xl text-white font-[Averia-Serif-Libre]">
-          <Link href="/" passHref>
-            <a className="text-[#015369]">Cover Letter</a>
-          </Link>
-          <Link href="/contact">Contact Us</Link>
-        </div>
+        <h1 className="flex text-center align-bottom justify-center font-[Averia-Serif-Libre] text-white text-3xl tracking-wider">
+          Br<p className="text-[#015369]">ai</p>niac
+        </h1>
       </div>
       <div className="w-full overflow-y-auto md:ml-[16vw] xl:ml-[12vw]">
         <nav className="flex flex-row align-middle justify-between px-16 pt-12 text-center">

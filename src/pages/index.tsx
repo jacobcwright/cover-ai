@@ -28,34 +28,31 @@ const Home: NextPage = () => {
   const [jobDescription, setJobDescription] = useState("")
   const [coverLetter, setCoverLetter] = useState("")
   const [loading, setLoading] = useState(false)
-  const [coverLetterCount, setCoverLetterCount] = useState()
+  const [coverLetterCount, setCoverLetterCount] = useState(0)
 
   useEffect(() => {
     if (!user) {
       router.push("/login")
     }
-    console.log(
-      "USER: ",
-      user.getSignInUserSession()?.getIdToken().getJwtToken()
-    )
-  }, [user])
-
-  useEffect(() => {
     const getCount = async () => {
       if (user) {
         assert(user.username)
-        const count = await API.graphql({
-          query: getCoverCount,
-          variables: {
-            id: "da69b70e-f2d7-43d1-aa49-39e459fac267",
-          },
-          authToken: user.getSignInUserSession()?.getIdToken().getJwtToken(),
-        })
-        console.log(count)
+        try {
+          const res: any = await API.graphql({
+            query: getCoverCount,
+            variables: {
+              id: "da69b70e-f2d7-43d1-aa49-39e459fac267",
+            },
+            authToken: user.getSignInUserSession()?.getIdToken().getJwtToken(),
+          })
+          setCoverLetterCount(res.data.getUsers.coverLetterCount)
+        } catch (err) {
+          console.error(err)
+        }
       }
     }
     getCount()
-  }, [])
+  }, [user])
 
   const getCoverLetter = async () => {
     if (resume && jobDescription) {
@@ -198,6 +195,7 @@ const Home: NextPage = () => {
             value={coverLetter}
             onChange={(e) => setCoverLetter(e.target.value)}
           ></textarea>
+          <p>Cover Letters Remaining: {coverLetterCount}</p>
         </div>
       </main>
     </div>

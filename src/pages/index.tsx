@@ -84,7 +84,7 @@ const Home: NextPage = () => {
           coverLetterCount: coverLetterCount,
           token: user.getSignInUserSession()?.getIdToken().getJwtToken(),
         }
-        await fetch("/api/openAi", {
+        await fetch("/api/cover-letter", {
           method: "POST",
           body: JSON.stringify({ data }),
         })

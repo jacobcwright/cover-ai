@@ -127,7 +127,9 @@ const Home: NextPage = () => {
             </Link>
             <div
               onClick={() => {
-                alert("Coming soon!")
+                alert(
+                  "Coming soon! If you need more cover letters, please reach out to Jacob at jacob.wright.ut@gmail.com"
+                )
                 return
               }}
             >

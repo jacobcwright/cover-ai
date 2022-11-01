@@ -125,7 +125,14 @@ const Home: NextPage = () => {
             <Link href="/" passHref>
               <a className="text-[#015369]">Cover Letter</a>
             </Link>
-            <Link href="/contact">Contact Us</Link>
+            <div
+              onClick={() => {
+                alert("Coming soon!")
+                return
+              }}
+            >
+              Contact Us
+            </div>
           </div>
         </div>
         <h1 className="flex text-center align-bottom justify-center font-[Averia-Serif-Libre] text-white text-3xl tracking-wider">

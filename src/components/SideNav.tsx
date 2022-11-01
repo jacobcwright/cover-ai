@@ -11,7 +11,7 @@ function SideNav() {
         <div
           className="flex h-1/4 justify-center hover:cursor-pointer hover:animate-pulse"
           onClick={() => {
-            router.replace("/")
+            router.replace("/home")
           }}
         >
           <Image

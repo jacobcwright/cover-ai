@@ -23,7 +23,7 @@ function SideNav() {
           />
         </div>
         <div className="mt-6 flex flex-col space-y-6 text-center text-2xl text-white font-[Averia-Serif-Libre]">
-          <Link href="/" passHref>
+          <Link href="/home" passHref>
             <a className="text-[#015369]">Cover Letter</a>
           </Link>
           <div

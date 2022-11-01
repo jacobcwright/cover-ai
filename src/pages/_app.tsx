@@ -11,7 +11,7 @@ Amplify.configure(config)
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
-  const noAuthRequired = ["/login", "/register"]
+  const noAuthRequired = ["/login", "/register", "/"]
   return (
     <>
       <Head>

@@ -17,9 +17,6 @@ export const createCoverLetterRequests = /* GraphQL */ `
       coverLetterResult
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -39,9 +36,6 @@ export const updateCoverLetterRequests = /* GraphQL */ `
       coverLetterResult
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -61,9 +55,6 @@ export const deleteCoverLetterRequests = /* GraphQL */ `
       coverLetterResult
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -94,17 +85,10 @@ export const createUsers = /* GraphQL */ `
           coverLetterResult
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       lastLogin
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -135,17 +119,10 @@ export const updateUsers = /* GraphQL */ `
           coverLetterResult
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       lastLogin
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -176,17 +153,10 @@ export const deleteUsers = /* GraphQL */ `
           coverLetterResult
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       lastLogin
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;

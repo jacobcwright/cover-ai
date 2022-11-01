@@ -31,6 +31,7 @@ const Home: NextPage = () => {
   const [coverLetter, setCoverLetter] = useState("")
   const [loading, setLoading] = useState(false)
   const [coverLetterCount, setCoverLetterCount] = useState(0)
+  const [createCoverLetterCalled, setCreateCoverLetterCalled] = useState(false)
 
   useEffect(() => {
     if (!user) {
@@ -47,6 +48,7 @@ const Home: NextPage = () => {
             },
             authToken: user.getSignInUserSession()?.getIdToken().getJwtToken(),
           })
+          console.log(res.data)
           setCoverLetterCount(res.data.getUsers.coverLetterCount)
         } catch (err) {
           console.error(err)
@@ -54,7 +56,7 @@ const Home: NextPage = () => {
       }
     }
     getCount()
-  }, [user, loading])
+  }, [user, createCoverLetterCalled])
 
   const getCoverLetter = async () => {
     if (resume && jobDescription) {
@@ -77,6 +79,7 @@ const Home: NextPage = () => {
           .then((res) => res.json())
           .then((data) => {
             setCoverLetter(data.choices[0].text)
+            setCreateCoverLetterCalled(!createCoverLetterCalled)
           })
       } catch (err) {
         setCoverLetter("An error has occurred, please try again.")

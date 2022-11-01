@@ -54,16 +54,18 @@ const handler = async (req: any, res: any) => {
         user: data.user,
       })
     // decrement cover letter count
-    await API.graphql({
+    let newCount = Number(data.coverLetterCount) - 1
+    let updatedUser = await API.graphql({
       query: updateUsers,
       variables: {
         input: {
           id: data.user,
-          coverLetterCount: data.coverLetterCount - 1,
+          coverLetterCount: newCount,
         },
       },
       authToken: data.token,
     })
+    console.log(updatedUser)
     res.status(200).json(response.data)
   } catch (e) {
     console.error(e)

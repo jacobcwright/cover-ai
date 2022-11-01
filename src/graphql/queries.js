@@ -14,9 +14,6 @@ export const getCoverLetterRequests = /* GraphQL */ `
       coverLetterResult
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `
@@ -42,12 +39,8 @@ export const listCoverLetterRequests = /* GraphQL */ `
         coverLetterResult
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       nextToken
-      startedAt
     }
   }
 `
@@ -56,40 +49,6 @@ export const getCoverCount = /* GraphQL */ `
   query GetUsers($id: ID!) {
     getUsers(id: $id) {
       coverLetterCount
-    }
-  }
-`
-
-export const syncCoverLetterRequests = /* GraphQL */ `
-  query SyncCoverLetterRequests(
-    $filter: ModelCoverLetterRequestsFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncCoverLetterRequests(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        usersID
-        name
-        company
-        jobTitle
-        resume
-        jobDescription
-        coverLetterResult
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `
@@ -117,17 +76,10 @@ export const getUsers = /* GraphQL */ `
           coverLetterResult
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
         }
         nextToken
-        startedAt
       }
       lastLogin
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `
@@ -150,52 +102,10 @@ export const listUsers = /* GraphQL */ `
         updatedAt
         CoverLetterRequests {
           nextToken
-          startedAt
         }
         lastLogin
-        _version
-        _deleted
-        _lastChangedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`
-export const syncUsers = /* GraphQL */ `
-  query SyncUsers(
-    $filter: ModelUsersFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncUsers(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        username
-        email
-        name
-        activeSubscription
-        subscriptionId
-        coverLetterCount
-        createdAt
-        updatedAt
-        CoverLetterRequests {
-          nextToken
-          startedAt
-        }
-        lastLogin
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `

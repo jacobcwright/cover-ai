@@ -17,10 +17,6 @@
         "cognitoUserPoolId": "authcoverai234019aa234019aa"
       }
     ],
-    "conflictResolution": {
-      "defaultResolutionStrategy": {
-        "type": "AUTOMERGE"
-      }
-    }
+    "conflictResolution": {}
   }
 }

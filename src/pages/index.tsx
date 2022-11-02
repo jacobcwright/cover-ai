@@ -16,7 +16,7 @@ const Home: NextPage = () => {
         <div className="absolute w-full sm:w-[80vw] h-[40vh] -z-10 m-auto left-0 right-0">
           <Image
             alt="header"
-            src="/coverPhoto.png"
+            src="/landingPageHeader.png"
             layout="fill"
             objectFit="cover"
             className="-z-10 absolute w-full h-full"
@@ -65,7 +65,15 @@ const Home: NextPage = () => {
           </Button>
         </div>
         <div className="h-full w-fit">
-          <Image src="/demo.gif" height={250} width={450} alt="demo video" />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            src="/middlePageVideo.mp4"
+            height={250}
+            width={450}
+          />
         </div>
       </div>
       <div className="flex flex-col w-full justify-center mt-14">

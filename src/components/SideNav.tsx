@@ -24,12 +24,23 @@ function SideNav() {
         </div>
         <div className="mt-6 flex flex-col space-y-6 text-center text-2xl text-white font-[Averia-Serif-Libre]">
           <Link href="/home" passHref>
-            <a className="text-[#015369]">Cover Letter</a>
+            {router.pathname === "/home" ? (
+              <a className="text-[#015369]">Cover Letter</a>
+            ) : (
+              <a className="">Cover Letter</a>
+            )}
           </Link>
+          {/* <Link href="/subscription" passHref>
+            {router.pathname === "/subscription" ? (
+              <a className="text-[#015369]">Subscription</a>
+            ) : (
+              <a className="">Subscription</a>
+            )}
+          </Link> */}
           <div
             onClick={() => {
               alert(
-                "Coming soon! If you need more cover letters, please reach out to Jacob at jacob.wright.ut@gmail.com"
+                "Coming soon! If you need more cover letters, please reach out to Jacob or visit the subscriptions tab."
               )
               return
             }}

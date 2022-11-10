@@ -105,7 +105,7 @@ const Cover: NextPage = () => {
   return (
     <div className="h-full w-full flex flex-row relative overflow-hidden">
       <Head>
-        <title>Braniac</title>
+        <title>Brainiac</title>
         <meta
           name="description"
           content="Create personalized cover letters using AI"

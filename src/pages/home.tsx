@@ -34,9 +34,11 @@ const Cover: NextPage = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
 
   useEffect(() => {
-    if (!user) {
-      router.push("/login")
-    }
+    Auth.currentAuthenticatedUser()
+      .then()
+      .catch(() => {
+        router.push("/login")
+      })
     const getCount = async () => {
       if (user) {
         assert(user.username)
@@ -96,10 +98,17 @@ const Cover: NextPage = () => {
     setLoading(false)
   }
 
-  const logout = async () => {
-    localStorage.clear()
-    await Auth.signOut()
-    router.push("/login")
+  const logout = async (event: React.MouseEvent) => {
+    event.preventDefault()
+    setTimeout(async () => {
+      try {
+        await Auth.signOut()
+        window.location.href = "/login"
+      } catch (error) {
+        console.log("error signing out: ", error)
+        event.preventDefault()
+      }
+    })
   }
 
   return (
@@ -114,7 +123,7 @@ const Cover: NextPage = () => {
       </Head>
       <SideNav />
       <div className="w-full overflow-y-auto md:ml-[16vw] xl:ml-[12vw]">
-        <NavBar logout={logout} />
+        <NavBar logout={(e: any) => logout(e)} />
 
         <main className="min-h-[100vh] px-8 md:px-16 py-16 flex flex-col justify-center items-center w-full">
           {loading && (

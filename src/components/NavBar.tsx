@@ -3,15 +3,16 @@ import React from "react"
 
 type Props = {
   logout: (e: any) => Promise<void>
+  title: string
 }
 
-function NavBar({ logout }: Props) {
+function NavBar({ logout, title }: Props) {
   const { signOut, user } = useAuthenticator()
 
   return (
     <nav className="flex flex-row align-middle justify-between px-16 pt-12 text-center">
       <h1 className="m-0 text-4xl text-center font-[Averia-Serif-Libre]">
-        Cover Letter Generator
+        {title}
       </h1>
       <div
         // make icon bounce on hover

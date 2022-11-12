@@ -30,11 +30,11 @@ function SideNav() {
               <a className="">Cover Letter</a>
             )}
           </Link>
-          <Link href="/subscription" passHref>
-            {router.pathname === "/subscription" ? (
-              <a className="text-[#015369]">Subscription</a>
+          <Link href="/tokens" passHref>
+            {router.pathname === "/tokens" ? (
+              <a className="text-[#015369]">Get Tokens</a>
             ) : (
-              <a className="">Subscription</a>
+              <a className="">Get Tokens</a>
             )}
           </Link>
           <div

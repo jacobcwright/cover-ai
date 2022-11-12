@@ -115,7 +115,7 @@ const Cover: NextPage = () => {
     <div className="h-full w-full flex flex-row relative overflow-hidden">
       <SideNav />
       <div className="w-full overflow-y-auto md:ml-[16vw] xl:ml-[12vw]">
-        <NavBar logout={(e: any) => logout(e)} />
+        <NavBar logout={(e: any) => logout(e)} title="Cover Letter Generator" />
 
         <main className="min-h-[100vh] px-8 md:px-16 py-16 flex flex-col justify-center items-center w-full">
           {loading && (
@@ -192,7 +192,7 @@ const Cover: NextPage = () => {
               onChange={(e) => setCoverLetter(e.target.value)}
             ></textarea>
             <p className="flex w-full font-[Inter]">
-              Cover Letters Remaining: {coverLetterCount}
+              Tokens Remaining: {coverLetterCount}
             </p>
           </div>
         </main>

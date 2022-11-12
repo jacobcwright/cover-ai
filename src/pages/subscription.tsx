@@ -7,7 +7,7 @@ import {
   useAuthenticator,
   withAuthenticator,
 } from "@aws-amplify/ui-react"
-import { Auth, withSSRContext } from "aws-amplify"
+import { Amplify, Auth, withSSRContext } from "aws-amplify"
 import { Router, useRouter } from "next/router"
 import { API, graphqlOperation } from "aws-amplify"
 import { getCoverCount } from "../graphql/queries"
@@ -17,6 +17,8 @@ import Link from "next/link"
 import Modal from "../components/Modal"
 import SideNav from "../components/SideNav"
 import NavBar from "../components/NavBar"
+import config from "../aws-exports"
+Amplify.configure({ ...config, ssr: true })
 
 const Subscription: NextPage = () => {
   const { signOut, user } = useAuthenticator()
@@ -25,15 +27,24 @@ const Subscription: NextPage = () => {
   const [name, setName] = useState("")
 
   useEffect(() => {
-    if (!user) {
-      router.push("/login")
-    }
-  }, [user])
+    Auth.currentAuthenticatedUser()
+      .then()
+      .catch(() => {
+        router.push("/login")
+      })
+  }, [])
 
-  const logout = async () => {
-    localStorage.clear()
-    await Auth.signOut()
-    router.push("/login")
+  const logout = async (event: React.MouseEvent) => {
+    event.preventDefault()
+    setTimeout(async () => {
+      try {
+        await Auth.signOut()
+        window.location.href = "/login"
+      } catch (error) {
+        console.log("error signing out: ", error)
+        event.preventDefault()
+      }
+    })
   }
 
   return (
@@ -48,9 +59,14 @@ const Subscription: NextPage = () => {
       </Head>
       <SideNav />
       <div className="w-full overflow-y-auto md:ml-[16vw] xl:ml-[12vw]">
-        <NavBar logout={logout} />
+        <NavBar logout={(e) => logout(e)} />
 
-        <main className="min-h-[100vh] px-8 md:px-16 py-16 flex flex-col justify-center items-center w-full"></main>
+        <main className="min-h-[100vh] px-8 md:px-16 py-16 flex flex-col justify-center items-center w-full">
+          <h1>
+            Hello, {user.attributes?.email}. Thank you for your patience. We are
+            working hard to add this.
+          </h1>
+        </main>
       </div>
     </div>
   )

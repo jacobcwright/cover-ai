@@ -29,7 +29,7 @@ const Cover: NextPage = () => {
   const [jobDescription, setJobDescription] = useState("")
   const [coverLetter, setCoverLetter] = useState("")
   const [loading, setLoading] = useState(false)
-  const [coverLetterCount, setCoverLetterCount] = useState(0)
+  const [tokenCount, setTokenCount] = useState(0)
   const [createCoverLetterCalled, setCreateCoverLetterCalled] = useState(false)
   const [modalOpen, setModalOpen] = useState<boolean>(false)
 
@@ -51,7 +51,7 @@ const Cover: NextPage = () => {
             authToken: user.getSignInUserSession()?.getIdToken().getJwtToken(),
           })
           console.log(res.data)
-          setCoverLetterCount(res.data.getUsers.coverLetterCount)
+          setTokenCount(res.data.getUsers.coverLetterCount)
         } catch (err) {
           console.error(err)
         }
@@ -61,7 +61,7 @@ const Cover: NextPage = () => {
   }, [user, createCoverLetterCalled])
 
   const getCoverLetter = async () => {
-    if (coverLetterCount <= 0) {
+    if (tokenCount <= 0) {
       setModalOpen(true)
       return
     }
@@ -75,7 +75,7 @@ const Cover: NextPage = () => {
           resume: resume,
           jobDescription: jobDescription,
           user: user.username,
-          coverLetterCount: coverLetterCount,
+          coverLetterCount: tokenCount,
           token: user.getSignInUserSession()?.getIdToken().getJwtToken(),
         }
         await fetch("/api/cover-letter", {
@@ -192,7 +192,7 @@ const Cover: NextPage = () => {
               onChange={(e) => setCoverLetter(e.target.value)}
             ></textarea>
             <p className="flex w-full font-[Inter]">
-              Tokens Remaining: {coverLetterCount}
+              Tokens Remaining: {tokenCount}
             </p>
           </div>
         </main>

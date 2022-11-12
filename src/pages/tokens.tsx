@@ -25,7 +25,7 @@ const Tokens: NextPage = () => {
   const { signOut, user } = useAuthenticator()
   const router = useRouter()
 
-  const [name, setName] = useState("")
+  const [tokenCount, setTokenCount] = useState(0)
 
   useEffect(() => {
     Auth.currentAuthenticatedUser()
@@ -33,6 +33,25 @@ const Tokens: NextPage = () => {
       .catch(() => {
         router.push("/login")
       })
+    const getCount = async () => {
+      if (user) {
+        assert(user.username)
+        try {
+          const res: any = await API.graphql({
+            query: getCoverCount,
+            variables: {
+              id: user.username,
+            },
+            authToken: user.getSignInUserSession()?.getIdToken().getJwtToken(),
+          })
+          console.log(res.data)
+          setTokenCount(res.data.getUsers.coverLetterCount)
+        } catch (err) {
+          console.error(err)
+        }
+      }
+    }
+    getCount()
   }, [])
 
   const logout = async (event: React.MouseEvent) => {
@@ -56,7 +75,7 @@ const Tokens: NextPage = () => {
         <main className="min-h-[100vh] px-8 md:px-16 py-16 flex flex-col justify-start items-center w-full">
           <div className="flex flex-col w-full h-full justify-start text-center items-center">
             <h1 className="w-full text-[#015369] my-4">
-              Tokens remaining: {user?.attributes?.email}
+              Tokens remaining: {tokenCount}
             </h1>
             <div className="w-full lg:w-1/3 h-full bg-[#9EB7BE] text-white p-8 rounded-lg font-[Inter] space-y-6 lg:text-xl">
               <h1 className="text-4xl font-[Averia-Serif-Libre]">Tokens</h1>

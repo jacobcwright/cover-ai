@@ -1,5 +1,6 @@
 import { useAuthenticator } from "@aws-amplify/ui-react"
-import React from "react"
+import Link from "next/link"
+import React, { useState } from "react"
 
 type Props = {
   logout: (e: any) => Promise<void>
@@ -8,6 +9,7 @@ type Props = {
 
 function NavBar({ logout, title }: Props) {
   const { signOut, user } = useAuthenticator()
+  const [profileModal, setProfileModal] = useState(false)
 
   return (
     <nav className="flex flex-row align-middle justify-between px-16 pt-12 text-center">
@@ -17,7 +19,7 @@ function NavBar({ logout, title }: Props) {
       <div
         // make icon bounce on hover
         className="hover:cursor-pointer"
-        onClick={(e) => logout(e)}
+        onClick={() => setProfileModal(!profileModal)}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -33,6 +35,15 @@ function NavBar({ logout, title }: Props) {
             d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
           />
         </svg>
+        {profileModal && (
+          <div className="fixed z-10">
+            <div className="flex flex-row justify-start text-left">
+              <button className="" onClick={(e) => logout(e)}>
+                <h1 className="text-md font-[Inter] underline">logout</h1>
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   )

@@ -113,14 +113,6 @@ const Cover: NextPage = () => {
 
   return (
     <div className="h-full w-full flex flex-row relative overflow-hidden">
-      <Head>
-        <title>Brainiac</title>
-        <meta
-          name="description"
-          content="Create personalized cover letters using AI"
-        />
-        <link rel="icon" href="/favicon.png" />
-      </Head>
       <SideNav />
       <div className="w-full overflow-y-auto md:ml-[16vw] xl:ml-[12vw]">
         <NavBar logout={(e: any) => logout(e)} />

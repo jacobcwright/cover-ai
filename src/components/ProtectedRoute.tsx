@@ -1,18 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useRouter } from "next/router"
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useAuthenticator } from "@aws-amplify/ui-react"
-import { withSSRContext } from "aws-amplify"
+import { Auth, withSSRContext } from "aws-amplify"
+import { setDefaultResultOrder } from "dns"
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const { signOut, user } = useAuthenticator()
+  const [user, setUser] = useState<any>(null)
   const router = useRouter()
 
   useEffect(() => {
-    if (!user) {
-      router.push("/login")
-    }
-  }, [user])
+    Auth.currentAuthenticatedUser()
+      .then((u) => {
+        setUser(u)
+      })
+      .catch(() => {
+        router.push("/login")
+      })
+  }, [])
 
   return <>{user ? children : null}</>
 }

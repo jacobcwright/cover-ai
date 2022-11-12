@@ -94,7 +94,7 @@ const Tokens: NextPage = () => {
                     d="M4.5 12.75l6 6 9-13.5"
                   />
                 </svg>
-                <h3>5 tokens per essay outline (coming soon...)</h3>
+                <h3>5 tokens per essay outline</h3>
               </div>
               <div className="flex flex-row space-x-2 justify-start items-center align-middle text-left">
                 <svg
@@ -111,7 +111,7 @@ const Tokens: NextPage = () => {
                     d="M4.5 12.75l6 6 9-13.5"
                   />
                 </svg>
-                <h3>10 tokens per essay draft (coming soon...)</h3>
+                <h3>10 tokens per essay draft</h3>
               </div>
               <div className="flex flex-row justify-center items-center my-12">
                 <button

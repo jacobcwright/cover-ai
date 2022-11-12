@@ -30,13 +30,13 @@ function SideNav() {
               <a className="">Cover Letter</a>
             )}
           </Link>
-          {/* <Link href="/subscription" passHref>
+          <Link href="/subscription" passHref>
             {router.pathname === "/subscription" ? (
               <a className="text-[#015369]">Subscription</a>
             ) : (
               <a className="">Subscription</a>
             )}
-          </Link> */}
+          </Link>
           <div
             onClick={() => {
               alert(

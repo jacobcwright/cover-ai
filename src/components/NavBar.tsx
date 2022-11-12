@@ -1,10 +1,13 @@
+import { useAuthenticator } from "@aws-amplify/ui-react"
 import React from "react"
 
 type Props = {
-  logout: () => void
+  logout: (e: any) => Promise<void>
 }
 
 function NavBar({ logout }: Props) {
+  const { signOut, user } = useAuthenticator()
+
   return (
     <nav className="flex flex-row align-middle justify-between px-16 pt-12 text-center">
       <h1 className="m-0 text-4xl text-center font-[Averia-Serif-Libre]">
@@ -13,7 +16,7 @@ function NavBar({ logout }: Props) {
       <div
         // make icon bounce on hover
         className="hover:cursor-pointer"
-        onClick={logout}
+        onClick={(e) => logout(e)}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -136,7 +136,7 @@ const Tokens: NextPage = () => {
                 <button
                   className="bg-[#0BA8D3] text-white text-xl w-full py-3 rounded-md"
                   onClick={() => {
-                    alert("ability to buy additional tokens coming soon!")
+                    router.replace("https://buy.stripe.com/dR6dUR9fh1i2fsY3ce")
                   }}
                 >
                   Get Tokens

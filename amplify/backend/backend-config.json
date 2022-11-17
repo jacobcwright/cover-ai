@@ -88,5 +88,13 @@
       "service": "Kinesis",
       "providerPlugin": "awscloudformation"
     }
+  },
+  "storage": {
+    "Usersx3ulhqtgzfhf3kkzgkijwq3toqmaster": {
+      "service": "DynamoDB",
+      "serviceType": "imported",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
+    }
   }
 }

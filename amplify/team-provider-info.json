@@ -22,6 +22,16 @@
           "deploymentBucketName": "amplify-coverai-master-04705-deployment",
           "s3Key": "amplify-builds/coverai234019aa234019aaCreateAuthChallenge-2b507147635463472f57-build.zip"
         }
+      },
+      "storage": {
+        "Usersx3ulhqtgzfhf3kkzgkijwq3toqmaster": {
+          "tableName": "Users-x3ulhqtgzfhf3kkzgkijwq3toq-master",
+          "region": "us-east-1",
+          "arn": "arn:aws:dynamodb:us-east-1:682820591350:table/Users-x3ulhqtgzfhf3kkzgkijwq3toq-master",
+          "streamArn": "arn:aws:dynamodb:us-east-1:682820591350:table/Users-x3ulhqtgzfhf3kkzgkijwq3toq-master/stream/2022-10-27T19:14:23.240",
+          "partitionKeyName": "id",
+          "partitionKeyType": "S"
+        }
       }
     }
   }

@@ -21,11 +21,11 @@ import config from "../aws-exports"
 
 Amplify.configure({ ...config, ssr: true })
 
-const Tokens: NextPage = () => {
+const Credits: NextPage = () => {
   const { signOut, user } = useAuthenticator()
   const router = useRouter()
 
-  const [tokenCount, setTokenCount] = useState(0)
+  const [creditCount, setCreditCount] = useState(0)
 
   useEffect(() => {
     Auth.currentAuthenticatedUser()
@@ -45,7 +45,7 @@ const Tokens: NextPage = () => {
             authToken: user.getSignInUserSession()?.getIdToken().getJwtToken(),
           })
           console.log(res.data)
-          setTokenCount(res.data.getUsers.coverLetterCount)
+          setCreditCount(res.data.getUsers.coverLetterCount)
         } catch (err) {
           console.error(err)
         }
@@ -71,16 +71,16 @@ const Tokens: NextPage = () => {
     <div className="h-full w-full flex flex-row relative overflow-hidden">
       <SideNav />
       <div className="w-full overflow-y-auto md:ml-[16vw] xl:ml-[12vw]">
-        <NavBar logout={(e) => logout(e)} title="Get Tokens" />
+        <NavBar logout={(e) => logout(e)} title="Get Credits" />
         <main className="min-h-[100vh] px-8 md:px-16 py-16 flex flex-col justify-start items-center w-full">
           <div className="flex flex-col w-full h-full justify-start text-center items-center">
             <h1 className="w-full text-[#015369] my-4 text-xl font-light italic">
-              Tokens remaining: {tokenCount}
+              Credits remaining: {creditCount}
             </h1>
             <div className="flex flex-col md:flex-row w-full space-y-4 md:space-x-4 md:space-y-0">
               <div className="w-full lg:w-1/3 h-full bg-[#9EB7BE] text-white p-8 rounded-lg font-[Inter] space-y-6 lg:text-xl">
                 <h1 className="text-4xl font-[Averia-Serif-Libre]">Cram</h1>
-                <h3 className="text-xl italic">10 tokens for $10.00</h3>
+                <h3 className="text-xl italic">10 credits for $10.00</h3>
                 <Divider backgroundColor={"white"} color={"white"} />
                 <div className="flex flex-row space-x-2 justify-start items-center align-middle text-left">
                   <svg
@@ -97,7 +97,7 @@ const Tokens: NextPage = () => {
                       d="M4.5 12.75l6 6 9-13.5"
                     />
                   </svg>
-                  <h3>1 token per cover letter</h3>
+                  <h3>1 credit per cover letter</h3>
                 </div>
                 <div className="flex flex-row space-x-2 justify-start items-center align-middle text-left">
                   <svg
@@ -114,7 +114,7 @@ const Tokens: NextPage = () => {
                       d="M4.5 12.75l6 6 9-13.5"
                     />
                   </svg>
-                  <h3>5 tokens per essay outline</h3>
+                  <h3>5 credits per essay outline</h3>
                 </div>
                 <div className="flex flex-row space-x-2 justify-start items-center align-middle text-left">
                   <svg
@@ -131,7 +131,7 @@ const Tokens: NextPage = () => {
                       d="M4.5 12.75l6 6 9-13.5"
                     />
                   </svg>
-                  <h3>10 tokens per essay draft</h3>
+                  <h3>10 credits per essay draft</h3>
                 </div>
                 <div className="flex flex-row justify-center items-center my-12">
                   <Link
@@ -140,7 +140,7 @@ const Tokens: NextPage = () => {
                     passHref
                   >
                     <button className="bg-[#0BA8D3] text-white text-xl w-full py-3 rounded-md">
-                      Get Tokens
+                      Get Credits
                     </button>
                   </Link>
                 </div>
@@ -164,7 +164,7 @@ const Tokens: NextPage = () => {
                       d="M4.5 12.75l6 6 9-13.5"
                     />
                   </svg>
-                  <h3>Get 10 tokens every month</h3>
+                  <h3>Get 10 credits every month</h3>
                 </div>
                 <div className="flex flex-row space-x-2 justify-start items-center align-middle text-left">
                   <svg
@@ -181,7 +181,7 @@ const Tokens: NextPage = () => {
                       d="M4.5 12.75l6 6 9-13.5"
                     />
                   </svg>
-                  <h3>$0.79 per token</h3>
+                  <h3>$0.79 per credit</h3>
                 </div>
                 <div className="flex flex-row space-x-2 justify-start items-center align-middle text-left">
                   <svg
@@ -198,7 +198,7 @@ const Tokens: NextPage = () => {
                       d="M4.5 12.75l6 6 9-13.5"
                     />
                   </svg>
-                  <h3>Tokens can accumulate if not used</h3>
+                  <h3>Credits can accumulate if not used</h3>
                 </div>
                 <div className="flex flex-row justify-center items-center my-12">
                   <Link
@@ -207,7 +207,7 @@ const Tokens: NextPage = () => {
                     passHref
                   >
                     <button className="bg-[#0BA8D3] text-white text-xl w-full py-3 rounded-md">
-                      Get Tokens
+                      Get Credits
                     </button>
                   </Link>
                 </div>
@@ -231,7 +231,7 @@ const Tokens: NextPage = () => {
                       d="M4.5 12.75l6 6 9-13.5"
                     />
                   </svg>
-                  <h3>Get 100 tokens every month 🔥</h3>
+                  <h3>Get 100 credits every month 🔥</h3>
                 </div>
                 <div className="flex flex-row space-x-2 justify-start items-center align-middle text-left">
                   <svg
@@ -248,7 +248,7 @@ const Tokens: NextPage = () => {
                       d="M4.5 12.75l6 6 9-13.5"
                     />
                   </svg>
-                  <h3>$0.25 per token 🤑</h3>
+                  <h3>$0.25 per credit 🤑</h3>
                 </div>
                 <div className="flex flex-row space-x-2 justify-start items-center align-middle text-left">
                   <svg
@@ -274,7 +274,7 @@ const Tokens: NextPage = () => {
                     passHref
                   >
                     <button className="bg-[#0BA8D3] text-white text-xl w-full py-3 rounded-md">
-                      Get Tokens
+                      Get Credits
                     </button>
                   </Link>
                 </div>
@@ -290,4 +290,4 @@ const Tokens: NextPage = () => {
   )
 }
 
-export default Tokens
+export default Credits

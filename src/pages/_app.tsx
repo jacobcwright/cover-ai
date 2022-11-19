@@ -1,5 +1,3 @@
-// import { Elements } from "@stripe/react-stripe-js"
-// import { loadStripe } from "@stripe/stripe-js"
 import "../styles/globals.scss"
 import "@aws-amplify/ui-react/styles.css"
 import type { AppProps } from "next/app"
@@ -10,10 +8,6 @@ import { useRouter } from "next/router"
 import ProtectedRoute from "../components/ProtectedRoute"
 import config from "../aws-exports"
 Amplify.configure({ ...config, ssr: true })
-
-// const stripeKey = process.env.STRIPE_KEY || ""
-
-// const stripePromise = loadStripe(stripeKey)
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()

@@ -207,7 +207,7 @@ const Credits: NextPage = () => {
                     passHref
                   >
                     <button className="bg-[#0BA8D3] text-white text-xl w-full py-3 rounded-md">
-                      Get Credits
+                      Subscribe
                     </button>
                   </Link>
                 </div>
@@ -274,7 +274,7 @@ const Credits: NextPage = () => {
                     passHref
                   >
                     <button className="bg-[#0BA8D3] text-white text-xl w-full py-3 rounded-md">
-                      Get Credits
+                      Subscribe
                     </button>
                   </Link>
                 </div>

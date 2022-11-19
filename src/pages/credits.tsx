@@ -136,7 +136,7 @@ const Credits: NextPage = () => {
                 <div className="flex flex-row justify-center items-center my-12">
                   <Link
                     target="_blank"
-                    href="https://buy.stripe.com/dR6dUR9fh1i2fsY3ce"
+                    href="https://buy.stripe.com/aEU9EB1MP7Gq4Ok28d"
                     passHref
                   >
                     <button className="bg-[#0BA8D3] text-white text-xl w-full py-3 rounded-md">
@@ -203,7 +203,7 @@ const Credits: NextPage = () => {
                 <div className="flex flex-row justify-center items-center my-12">
                   <Link
                     target="_blank"
-                    href="https://buy.stripe.com/dR6dUR9fh1i2fsY3ce"
+                    href="https://buy.stripe.com/3csg2Z7797Gq4Ok8wA"
                     passHref
                   >
                     <button className="bg-[#0BA8D3] text-white text-xl w-full py-3 rounded-md">
@@ -270,7 +270,7 @@ const Credits: NextPage = () => {
                 <div className="flex flex-row justify-center items-center my-12">
                   <Link
                     target="_blank"
-                    href="https://buy.stripe.com/dR6dUR9fh1i2fsY3ce"
+                    href="https://buy.stripe.com/dR61853UXe4O4OkfZ1"
                     passHref
                   >
                     <button className="bg-[#0BA8D3] text-white text-xl w-full py-3 rounded-md">

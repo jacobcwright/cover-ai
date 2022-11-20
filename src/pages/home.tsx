@@ -199,31 +199,17 @@ const Cover: NextPage = () => {
       </div>
       <Modal
         visible={modalOpen}
-        title="You've used your 3 requests"
-        subtitle="We're currently working on integrating a payment solution.
-            Until then, email jacob.wright.ut@gmail.com and venmo @jacobwright30 $3 to receive 50 more credits."
+        title="You've used all your credits"
+        subtitle=""
       >
-        <div className="flex flex-col space-y-2">
-          <Button
-            backgroundColor="#0BA8D3"
-            onClick={() => {
-              window.open("mailto:jacob.wright.ut@gmail.com")
-            }}
-          >
-            <p className="text-white">Click here to email</p>
-          </Button>
-          <Button
-            backgroundColor="#0BA8D3"
-            onClick={() => {
-              window.open("https://venmo.com/jacobwright30")
-            }}
-          >
-            <p className="text-white">Click here to venmo</p>
-          </Button>
-        </div>
-        <h2 className="font-[Averia-Serif-Libre] text-2xl">
-          Thank you for your patience
-        </h2>
+        <Button
+          backgroundColor="#0BA8D3"
+          onClick={() => {
+            router.replace("/credits")
+          }}
+        >
+          Get credits
+        </Button>
       </Modal>
     </div>
   )

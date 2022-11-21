@@ -79,7 +79,9 @@ const Credits: NextPage = () => {
             </h1>
             <div className="flex flex-col md:flex-row w-full space-y-4 md:space-x-4 md:space-y-0">
               <div className="w-full lg:w-1/3 h-full bg-[#9EB7BE] text-white p-8 rounded-lg font-[Inter] space-y-6 lg:text-xl">
-                <h1 className="text-4xl font-[Averia-Serif-Libre]">Cram</h1>
+                <h1 className="text-4xl font-[Averia-Serif-Libre] tracking-wide">
+                  Cram
+                </h1>
                 <h3 className="text-xl italic">10 credits for $10.00</h3>
                 <Divider backgroundColor={"white"} color={"white"} />
                 <div className="flex flex-row space-x-2 justify-start items-center align-middle text-left">
@@ -146,7 +148,9 @@ const Credits: NextPage = () => {
                 </div>
               </div>
               <div className="w-full lg:w-1/3 h-full bg-[#9EB7BE] text-white p-8 rounded-lg font-[Inter] space-y-6 lg:text-xl">
-                <h1 className="text-4xl font-[Averia-Serif-Libre]">Basic</h1>
+                <h1 className="text-4xl font-[Averia-Serif-Libre] tracking-wide">
+                  Basic
+                </h1>
                 <h3 className="text-xl italic">$7.99/month</h3>
                 <Divider />
                 <div className="flex flex-row space-x-2 justify-start items-center align-middle text-left">
@@ -213,7 +217,9 @@ const Credits: NextPage = () => {
                 </div>
               </div>
               <div className="w-full lg:w-1/3 h-full bg-[#9EB7BE] text-white p-8 rounded-lg font-[Inter] space-y-6 lg:text-xl">
-                <h1 className="text-4xl font-[Averia-Serif-Libre]">Premium</h1>
+                <h1 className="text-4xl font-[Averia-Serif-Libre] tracking-wide">
+                  Premium
+                </h1>
                 <h3 className="text-xl italic">$24.99/month</h3>
                 <Divider />
                 <div className="flex flex-row space-x-2 justify-start items-center align-middle text-left">

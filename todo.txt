@@ -1,1 +1,12 @@
+DEV:
 - Stripe webhooks (by Monday 11/26)
+    - Cram webhook
+    - Basic webhook
+    - Premium webhook
+- Essay outline (by Monday 11/26)
+    - Front end (by Monday 11/26)
+    - Back end (by Monday 11/26)
+
+Explore:
+- why auth webhook disconnects
+- market research for cold outbound email with gpt3

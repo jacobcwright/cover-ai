@@ -10,3 +10,6 @@ DEV:
 Explore:
 - why auth webhook disconnects
 - market research for cold outbound email with gpt3
+
+Management:
+- Ask Alex to create system for design tickets

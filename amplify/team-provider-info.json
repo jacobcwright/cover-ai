@@ -21,6 +21,11 @@
         "coverai234019aa234019aaCreateAuthChallenge": {
           "deploymentBucketName": "amplify-coverai-master-04705-deployment",
           "s3Key": "amplify-builds/coverai234019aa234019aaCreateAuthChallenge-2b507147635463472f57-build.zip"
+        },
+        "cramWebhook": {
+          "stripeEndpoint": "null",
+          "stripeApiKey": "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",
+          "stripeTestKey": "pk_test_51LiOqmB49Bwoi0xAmBeftfLXwVZxmVJ1zci5BTTG2sNUu5CrY4pYrYxfS3Q1y8MCEYQBTrsKU5sE1APh4JgrayEg00HvHaLv8z"
         }
       },
       "storage": {

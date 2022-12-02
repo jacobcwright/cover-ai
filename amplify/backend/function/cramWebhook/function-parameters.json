@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "api": {
+      "coverai": [
+        "Query",
+        "Mutation",
+        "Subscription"
+      ]
+    }
+  },
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "stripeEndpoint",
+      "environmentVariableName": "STRIPE_ENDPOINT"
+    },
+    {
+      "cloudFormationParameterName": "stripeApiKey",
+      "environmentVariableName": "STRIPE_API_KEY"
+    },
+    {
+      "cloudFormationParameterName": "stripeTestKey",
+      "environmentVariableName": "STRIPE_TEST_KEY"
+    }
+  ]
+}

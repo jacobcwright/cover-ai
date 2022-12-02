@@ -1,19 +1,18 @@
 import { AxiosResponse } from "axios"
 import { Amplify, API, graphqlOperation } from "aws-amplify"
-import config from "../../aws-exports"
+import config from "../../../aws-exports"
 
 Amplify.configure({ ...config, ssr: true })
 
 const stripe = require("stripe")(process.env.STRIPE_API_KEY)
 // const endpointSecret = process.env.STRIPE_ENDPOINT
 
-const endpointSecret =
-  "whsec_17b4c8caf9a34d5374052cfa76b1d6a27b9ced7a716b69c371cccbecc56799d6"
+const endpointSecret = "whsec_AqCph9Ty6i7jQTUU11DsY4njxR5KLowf"
 
 const handler = async (request: any, response: any) => {
-  console.log("in handler")
-  console.log("Request body:", request.body)
-  console.log("Request header:", request.header)
+  // console.log("in handler")
+  // console.log("Request body:", request.body)
+  // console.log("Request header:", request.header)
 
   const sig = request.headers["stripe-signature"]
   let event

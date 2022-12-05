@@ -89,9 +89,9 @@ const Credits: NextPage = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    strokeWidth={4}
+                    strokeWidth={2}
                     stroke="#0BA8D3"
-                    className="w-6 h-6"
+                    className="h-6"
                   >
                     <path
                       strokeLinecap="round"
@@ -106,9 +106,9 @@ const Credits: NextPage = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    strokeWidth={4}
+                    strokeWidth={2}
                     stroke="#0BA8D3"
-                    className="w-6 h-6"
+                    className="h-6"
                   >
                     <path
                       strokeLinecap="round"
@@ -123,9 +123,9 @@ const Credits: NextPage = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    strokeWidth={4}
+                    strokeWidth={2}
                     stroke="#0BA8D3"
-                    className="w-6 h-6"
+                    className="h-6"
                   >
                     <path
                       strokeLinecap="round"
@@ -158,9 +158,9 @@ const Credits: NextPage = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    strokeWidth={4}
+                    strokeWidth={2}
                     stroke="#0BA8D3"
-                    className="w-6 h-6"
+                    className="h-6"
                   >
                     <path
                       strokeLinecap="round"
@@ -175,9 +175,9 @@ const Credits: NextPage = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    strokeWidth={4}
+                    strokeWidth={2}
                     stroke="#0BA8D3"
-                    className="w-6 h-6"
+                    className="h-6"
                   >
                     <path
                       strokeLinecap="round"
@@ -192,9 +192,9 @@ const Credits: NextPage = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    strokeWidth={4}
+                    strokeWidth={2}
                     stroke="#0BA8D3"
-                    className="w-6 h-6"
+                    className="h-6"
                   >
                     <path
                       strokeLinecap="round"
@@ -227,9 +227,9 @@ const Credits: NextPage = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    strokeWidth={4}
+                    strokeWidth={2}
                     stroke="#0BA8D3"
-                    className="w-6 h-6"
+                    className="h-6"
                   >
                     <path
                       strokeLinecap="round"
@@ -244,9 +244,9 @@ const Credits: NextPage = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    strokeWidth={4}
+                    strokeWidth={2}
                     stroke="#0BA8D3"
-                    className="w-6 h-6"
+                    className="h-6"
                   >
                     <path
                       strokeLinecap="round"
@@ -261,9 +261,9 @@ const Credits: NextPage = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    strokeWidth={4}
+                    strokeWidth={2}
                     stroke="#0BA8D3"
-                    className="w-6 h-6"
+                    className="h-6"
                   >
                     <path
                       strokeLinecap="round"

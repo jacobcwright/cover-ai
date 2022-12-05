@@ -9,17 +9,17 @@ function SideNav() {
     <div className="hidden md:flex md:flex-col md:fixed md:min-w-[180px] md:w-[12vw] md:h-screen bg-[#9EB7BE] p-4 pt-12 justify-between">
       <div className="flex justify-start flex-col h-full">
         <div
-          className="flex h-1/4 justify-center hover:cursor-pointer hover:animate-pulse"
+          className="flex justify-center hover:cursor-pointer hover:animate-pulse"
           onClick={() => {
             router.replace("/")
           }}
         >
           <Image
-            src="/brainiacWhite.png"
+            src="/squareLogo.png"
             alt="brainiac logo"
             layout="intrinsic"
-            height={300}
-            width={120}
+            height={400}
+            width={400}
           />
         </div>
         <div className="mt-6 flex flex-col space-y-6 text-center text-2xl text-white font-[Averia-Serif-Libre]">
@@ -37,16 +37,6 @@ function SideNav() {
               <a className="">Get Credits</a>
             )}
           </Link>
-          <div
-            onClick={() => {
-              alert(
-                "Coming soon! If you need more cover letters, please reach out to Jacob or visit the subscriptions tab."
-              )
-              return
-            }}
-          >
-            Contact Us
-          </div>
         </div>
       </div>
       <h1 className="flex text-center align-bottom justify-center font-[Averia-Serif-Libre] text-white text-3xl tracking-wider">
